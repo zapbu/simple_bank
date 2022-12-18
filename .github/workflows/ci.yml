@@ -1,0 +1,13 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Build server
+        run: ./build_server.sh
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./test_server.sh
